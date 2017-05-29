@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name"></string>
+    <string name="app_name">TSE - Instructivo de JRV</string>
+    <string name="string_paso_paso">Manual paso a paso</string>
+    <string name="string_agenda">Agenda</string>
+    <string name="string_tse">Tribunal Supremo Electoral</string>
+    <string name="string_aula_virtual">Aula virtual</string>
 </resources>

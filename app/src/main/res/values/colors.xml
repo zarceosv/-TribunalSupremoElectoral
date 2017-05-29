@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="color_indigo300">#7986CB</color>
+    <color name="color_indigo400">#5C6BC0</color>
+    <color name="color_indigo500">#3F51B5</color>
+    <color name="color_indigo800">#283593</color>
+    <color name="color_panteone">#005192</color>
+    <color name="color_panteone2">#00579e</color>
 </resources>
