@@ -51,12 +51,10 @@ public class ActivityMain extends AppCompatActivity {
 
     /*--------- ENLACES EXTERNOS DE LA APP -------------*/
     public void onClickButtonWebTSE(View v){
-        /*Uri uri = Uri.parse("http://www.tse.gob.sv/"); // missing 'http://' will cause crashed
+        Uri uri = Uri.parse("http://www.tse.gob.sv/"); // missing 'http://' will cause crashed
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);*/
-        /* -----Esto se va a borrar --------------------*/
-        comprobarConsultaSQL();
-        /* ----- Fin Esto se va a borrar ----------------*/
+        startActivity(intent);
+        
     }
 
     public void onClickButtonAulaVirtual(View v){
@@ -65,6 +63,13 @@ public class ActivityMain extends AppCompatActivity {
         startActivity(intent);
     }
     /*--------- FIN DE ENLACES EXTERNOS DE LA APP ---------*/
+
+    public void pasoPaso(View view) {
+        Intent i = new Intent(this, manual_paso_paso.class );
+        startActivity(i);
+
+    }
+
 
     /*--------- Esto se va a borrar -----------------------*/
     public void comprobarConsultaSQL(){

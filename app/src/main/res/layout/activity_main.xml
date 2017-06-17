@@ -10,8 +10,8 @@
         android:id="@+id/button_manual_paso_a_paso"
         android:layout_width="0dp"
         android:layout_height="115dp"
-        android:layout_marginTop="0dp"
         android:background="@color/color_panteone2"
+        android:onClick="pasoPaso"
         android:paddingLeft="80dp"
         android:text="@string/string_paso_paso"
         android:textAlignment="textStart"
@@ -19,7 +19,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
 
     <Button
         android:id="@+id/button_agenda"
@@ -34,7 +36,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button_manual_paso_a_paso" />
+        app:layout_constraintTop_toTopOf="@+id/button_manual_paso_a_paso"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintLeft_creator="1" />
 
     <Button
         android:id="@+id/button_aula_virtual"
@@ -50,7 +54,9 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:paddingLeft="80dp"
-        android:onClick="onClickButtonAulaVirtual"/>
+        android:onClick="onClickButtonAulaVirtual"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintLeft_creator="1" />
 
     <Button
         android:id="@+id/button_web_tse"
@@ -66,7 +72,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintLeft_creator="1" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionButton_actualizar_app"
@@ -109,6 +117,7 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="38dp"
         android:forceHasOverlappingRendering="false"
         android:translationZ="50dp"
@@ -126,7 +135,8 @@
         android:translationZ="50dp"
         app:layout_constraintLeft_toLeftOf="@+id/button_agenda"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@android:drawable/ic_dialog_email"
+        android:layout_marginStart="28dp" />
 
     <ImageView
         android:id="@+id/imageView_aula_virtual"
@@ -137,7 +147,8 @@
         android:layout_marginLeft="28dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="269dp" />
+        android:layout_marginTop="269dp"
+        android:layout_marginStart="28dp" />
 
     <ImageView
         android:id="@+id/imageView_sitio_web_tse"
@@ -148,7 +159,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="389dp"
         android:layout_marginLeft="28dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="28dp" />
 
     <ImageView
         android:id="@+id/imageView_logo_tse"
@@ -158,6 +170,25 @@
         android:layout_marginLeft="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:srcCompat="@drawable/logo_tse" />
+        app:srcCompat="@drawable/logo_tse"
+        android:layout_marginStart="16dp" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline"
+        app:layout_constraintGuide_begin="20dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="20dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline2"
+        app:layout_constraintGuide_begin="20dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="20dp" />
 
 </android.support.constraint.ConstraintLayout>
