@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".manual_paso_paso"></activity>
+        <activity android:name=".ActivityManual"></activity>
     </application>
 
 </manifest>
