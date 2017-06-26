@@ -4,7 +4,6 @@ import com.tesis.tse.tse_instructivojrv.modelo.*;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,7 @@ import com.bumptech.glide.Glide;
 
 import in.srain.cube.views.GridViewWithHeaderAndFooter;
 
-public class GridFragment extends Fragment {
+public class ActividadGridFragment extends Fragment {
     /**
      * Argumento que representa el número sección al que pertenece
      */
@@ -28,23 +27,23 @@ public class GridFragment extends Fragment {
         this.context=context;
     }
     /**
-     * Creación prefabricada de un {@link GridFragment}
+     * Creación prefabricada de un {@link ActividadGridFragment}
      */
-    public static GridFragment newInstance(int sectionNumber) {
-        GridFragment fragment = new GridFragment();
+    public static ActividadGridFragment newInstance(int sectionNumber) {
+        ActividadGridFragment fragment = new ActividadGridFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public GridFragment() {
+    public ActividadGridFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.actividad_fragment_main, container, false);
         // Obtención del grid view plugin compile 'in.srain.cube:grid-view-with-header-footer:1.0.12'
         GridViewWithHeaderAndFooter grid = (GridViewWithHeaderAndFooter) rootView.findViewById(R.id.gridview);
 
@@ -62,7 +61,7 @@ public class GridFragment extends Fragment {
     private void setUpGridView(GridViewWithHeaderAndFooter grid) {
         int section_number = getArguments().getInt(ARG_SECTION_NUMBER);
         grid.addHeaderView(createHeaderView(llenarFase.getFase(getActivity(),section_number)));
-        grid.setAdapter(new GridAdapter(getActivity(), llenarActividad.getActividadFase(getActivity(),section_number)));
+        grid.setAdapter(new ActividadGridAdapter(getActivity(), llenarActividad.getActividadFase(getActivity(),section_number)));
     }
 
     /**
@@ -77,7 +76,7 @@ public class GridFragment extends Fragment {
         View view;
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        view = inflater.inflate(R.layout.grid_header, null, false);
+        view = inflater.inflate(R.layout.actividad_grid_header, null, false);
 
         Fase item = items[0];
 

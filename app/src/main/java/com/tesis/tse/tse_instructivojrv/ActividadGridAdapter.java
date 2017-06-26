@@ -2,6 +2,7 @@ package com.tesis.tse.tse_instructivojrv;
 
 import com.tesis.tse.tse_instructivojrv.modelo.Actividad;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +15,12 @@ import com.bumptech.glide.Glide;
 /**
  * {@link BaseAdapter} personalizado para el gridview
  */
-public class GridAdapter extends BaseAdapter {
+public class ActividadGridAdapter extends BaseAdapter {
 
     private final Context mContext;
     private final Actividad[] items;
 
-    public GridAdapter(Context c, Actividad[] items) {
+    public ActividadGridAdapter(Context c, Actividad[] items) {
         mContext = c;
         this.items = items;
     }
@@ -46,10 +47,10 @@ public class GridAdapter extends BaseAdapter {
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.grid_item, viewGroup, false);
+            view = inflater.inflate(R.layout.actividad_grid_item, viewGroup, false);
         }
 
-        Actividad item = getItem(position);
+        final Actividad item = getItem(position);
 
         // Seteando Imagen
         ImageView image = (ImageView) view.findViewById(R.id.imagen);
@@ -65,11 +66,19 @@ public class GridAdapter extends BaseAdapter {
 
         // Seteando Leermas
         TextView Leermas = (TextView) view.findViewById(R.id.leermas);
-        if(item.isDetalle())
+        if(item.isDetalle()) {
             Leermas.setText("Leer más...");
-        else
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(mContext, ActivityDescripcion.class );
+                    i.putExtra("id_actividad", item.getId());
+                    mContext.startActivity(i);
+                }
+            });
+        }else {
             Leermas.setText("");
-
+        }
         return view;
     }
 }

@@ -54,7 +54,7 @@ public class ActivityManual extends AppCompatActivity {
                 return;
             }
             while (res.moveToNext()){
-                GridFragment myGridFragment = GridFragment.newInstance(Integer.parseInt(res.getString(0)));
+                ActividadGridFragment myGridFragment = ActividadGridFragment.newInstance(Integer.parseInt(res.getString(0)));
                 myGridFragment.setContexto(this);
                 adapter.addFragment(myGridFragment, res.getString(1));
             }
