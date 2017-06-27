@@ -50,4 +50,9 @@ public class ActivityMain extends AppCompatActivity {
         Intent i = new Intent(this, ActivityManual.class );
         startActivity(i);
     }
+
+    public void onClickButtonAgenda(View v){
+        Intent i = new Intent(this, ActivityAgenda.class );
+        startActivity(i);
+    }
 }

@@ -28,6 +28,7 @@
         android:layout_height="115dp"
         android:layout_marginTop="115dp"
         android:background="@color/color_panteone"
+        android:onClick="onClickButtonAgenda"
         android:paddingLeft="80dp"
         android:text="@string/string_agenda"
         android:textAlignment="textStart"
@@ -43,15 +44,15 @@
         android:layout_height="115dp"
         android:layout_marginTop="230dp"
         android:background="@color/color_panteone2"
+        android:onClick="onClickButtonAulaVirtual"
+        android:paddingLeft="80dp"
         android:text="@string/string_aula_virtual"
         android:textAlignment="textStart"
         android:textColor="@android:color/white"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:paddingLeft="80dp"
-        android:onClick="onClickButtonAulaVirtual"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_web_tse"
