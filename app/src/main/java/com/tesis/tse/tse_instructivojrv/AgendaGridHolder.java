@@ -16,6 +16,7 @@ import com.tesis.tse.tse_instructivojrv.modelo.Detalle;
 public class AgendaGridHolder extends RecyclerView.ViewHolder {
     private TextView hora;
     private TextView detalle;
+    private TextView fase;
 
     private Context mContext;
 
@@ -24,12 +25,15 @@ public class AgendaGridHolder extends RecyclerView.ViewHolder {
 
         mContext = context;
 
-        hora = (TextView) itemView.findViewById(R.id.txt_hora);
-        detalle = (TextView) itemView.findViewById(R.id.txt_detalle);
+        hora = (TextView) itemView.findViewById(R.id.txt_hora_agenda);
+        detalle = (TextView) itemView.findViewById(R.id.txt_detalle_agenda);
+        fase = (TextView) itemView.findViewById(R.id.txt_nombre_fase_agenda);
     }
 
     public void populateItems(Actividad items) {
-        hora.setText(" - "+items.getHora_inicio());
-        detalle.setText(items.getTitulo());
+
+        hora.setText("I: "+items.getHora_inicio()+"\n"+"F: "+items.getHora_fin());
+        detalle.setText(items.getTitulo()+items.getDescripcion());
+        fase.setText(items.getNombre_fase().toUpperCase());
     }
 }

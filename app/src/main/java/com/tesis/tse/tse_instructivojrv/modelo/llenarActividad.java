@@ -5,7 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by cArLos on 11/6/2017.
@@ -46,12 +48,13 @@ public class llenarActividad {
     }
 
     public static Actividad[] getActividadAgendaXFase(Context context,Integer id_fase) {
+
         ArrayList<Actividad> actividadesLista = new ArrayList();
         Actividad[] actividadesArreglo = null;
         try {
             myDb = new DAO(context);
             myDb.createDataBase();
-            Cursor res = myDb.consultaSQL("SELECT f.nombre,a.titulo, a.descripcion,a.nombre_imgico,a.orden,COUNT(axd.actividad_x_detalle_id),a.actividad_id, a.hora_inicio, a.hora_fin FROM tse_fase f INNER JOIN tse_actividad a ON f.fase_id = a.fase_id LEFT JOIN tse_actividad_x_detalle axd ON axd.actividad_id = a.actividad_id WHERE a.activo = 1 AND f.fase_id = "+id_fase+" GROUP BY f.fase_id, a.actividad_id ORDER BY a.hora_inicio" );
+            Cursor res = myDb.consultaSQL("SELECT f.nombre,a.titulo, a.descripcion,a.nombre_imgico,a.orden,COUNT(axd.actividad_x_detalle_id),a.actividad_id, a.hora_inicio, a.hora_fin FROM tse_fase f INNER JOIN tse_actividad a ON f.fase_id = a.fase_id LEFT JOIN tse_actividad_x_detalle axd ON axd.actividad_id = a.actividad_id WHERE a.activo = 1 GROUP BY f.fase_id, a.actividad_id ORDER BY a.hora_inicio" );
             if (res.getCount() == 0) {
                 return null;
             }
@@ -72,6 +75,7 @@ public class llenarActividad {
             res.close();
             actividadesArreglo = actividadesLista.toArray(new Actividad[actividadesLista.size()]);
         } catch (Exception e) {
+
         }
         return actividadesArreglo;
     }

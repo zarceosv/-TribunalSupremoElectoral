@@ -1,36 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="1dp"
-    app:cardUseCompatPadding="true">
+    android:elevation="1dp"
+    app:cardCornerRadius="8dp"
+    app:cardUseCompatPadding="true"
+    tools:cardUseCompatPadding="true">
 
-    <LinearLayout
+    <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:soundEffectsEnabled="false"
         android:weightSum="1">
 
-        <TextView
-            android:id="@+id/txt_hora"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/card_margin"
-            android:layout_marginRight="@dimen/card_margin"
-            android:gravity="left"
-            android:padding="5dp"
-            android:text="5:00 am"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/grid_item_text_size" />
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:soundEffectsEnabled="false"
+            android:weightSum="1">
 
-        <TextView
-            android:id="@+id/txt_detalle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DETALLE DE LA ACTIVIDAD" />
+            <TextView
+                android:id="@+id/txt_nombre_fase_agenda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_panteone"
+                android:text="fase1"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_editor_absoluteX="-138dp" />
 
-    </LinearLayout>
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:soundEffectsEnabled="false"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/txt_hora_agenda"
+                android:layout_width="69dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="8dp"
+                android:gravity="left"
+                android:padding="5dp"
+                android:text="5:00 am"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/grid_item_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.01"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.369"
+                tools:layout_constraintBottom_creator="1"
+                tools:layout_constraintLeft_creator="1" />
+
+            <TextView
+                android:id="@+id/txt_detalle_agenda"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="8dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="12dp"
+                android:text="DETALLE DE LA ACTIVIDAD"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.31"
+                app:layout_constraintLeft_toRightOf="@+id/txt_hora_agenda"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nombre_fase_agenda"
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_constraintBottom_creator="1"
+                tools:layout_constraintLeft_creator="1"
+                tools:layout_constraintTop_creator="1" />
+
+
+        </android.support.v7.widget.LinearLayoutCompat>
+    </android.support.v7.widget.LinearLayoutCompat>
 </android.support.v7.widget.CardView>

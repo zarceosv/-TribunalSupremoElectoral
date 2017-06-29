@@ -21,6 +21,7 @@ public class ActivityManual extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manual);
+
         // Crear base de datos
         crearInstanciaDB();
         // Setear adaptador al viewpager.

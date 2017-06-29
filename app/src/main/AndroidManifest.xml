@@ -20,7 +20,7 @@
         </activity>
         <activity android:name=".ActivityManual" />
         <activity android:name=".ActivityDescripcion" />
-        <activity android:name=".ActivityAgenda"></activity>
+        <activity android:name=".ActivityAgenda" />
     </application>
 
 </manifest>
