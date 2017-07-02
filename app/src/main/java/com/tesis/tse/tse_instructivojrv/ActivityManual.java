@@ -23,7 +23,8 @@ public class ActivityManual extends AppCompatActivity {
         setContentView(R.layout.activity_manual);
 
         // Crear base de datos
-        crearInstanciaDB();
+        myDb = new DAO(this);
+
         // Setear adaptador al viewpager.
         mViewPager = (ViewPager) findViewById(R.id.pager);
         setupViewPager(mViewPager);
@@ -31,16 +32,7 @@ public class ActivityManual extends AppCompatActivity {
         TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
         tabs.setupWithViewPager(mViewPager);
     }
-
-    public void crearInstanciaDB(){
-        try{
-            myDb = new DAO(this);
-            myDb.createDataBase();
-        }catch (Exception e){
-
-        }
-    }
-
+    
     /**
      * Crea una instancia del view pager con los datos
      * predeterminados
@@ -50,7 +42,7 @@ public class ActivityManual extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         try{
-            Cursor res = myDb.consultaSQL("SELECT f.fase_id, f.nombre_tab FROM tse_fase f INNER JOIN tse_actividad a ON f.fase_id = a.fase_id GROUP BY f.fase_id");
+            Cursor res = myDb.consultaSQL("SELECT f.fase_id, f.nombre_tab FROM tse_fase f INNER JOIN tse_actividad a ON f.fase_id = a.fase_id AND a.activo = 1 WHERE f.activo = 1 GROUP BY f.fase_id");
             if(res.getCount() == 0){
                 return;
             }

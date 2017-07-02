@@ -19,7 +19,6 @@ public class llenarFase {
         Fase[] faseArreglo = null;
         try {
             myDb = new DAO(context);
-            myDb.createDataBase();
             Cursor res = myDb.consultaSQL("SELECT f.nombre, f.nombre_imgico, f.fase_id, f.nombre_tab  FROM tse_fase f INNER JOIN tse_actividad a ON f.fase_id = a.fase_id WHERE f.fase_id="+fase_id+" GROUP BY f.fase_id");
             if (res.getCount() == 0) {
                 return null;

@@ -20,28 +20,7 @@ public class DetalleGridAdapter extends RecyclerView.Adapter<DetalleGridHolder> 
 
     public DetalleGridAdapter(Context context, Detalle[] items) {
         this.items = items;
-
-        int[] items2 = { R.drawable.logo_tse,
-                R.drawable.logo_tse,
-                R.drawable.logo_tse,
-                R.drawable.logo_tse,
-                R.drawable.logo_tse,
-                R.drawable.logo_tse,
-                R.drawable.logo_tse,
-                R.drawable.logo_tse,
-                R.drawable.logo_tse,
-                R.drawable.logo_tse,
-                R.drawable.logo_tse,
-        };
-
-
-        String[] fruitsName = {"Apota", "Apple", "Banana", "Grapes", "Guava", "Lemon", "Orange",
-                "Papaya", "Pineapple", "Pomegranate", "Pomegranate", "Watermelon"};
-        this.items2 = items2;
-        this.fruitsName = fruitsName;
-
         mContext = context;
-
     }
 
     @Override

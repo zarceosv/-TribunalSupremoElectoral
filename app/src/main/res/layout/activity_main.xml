@@ -13,7 +13,7 @@
         android:layout_marginTop="0dp"
         android:background="@color/color_panteone2"
         android:paddingLeft="80dp"
-        android:text="@string/string_paso_paso"
+        android:text=""
         android:textAlignment="textStart"
         android:textColor="@android:color/white"
         app:layout_constraintHorizontal_bias="0.0"
@@ -30,7 +30,7 @@
         android:background="@color/color_panteone"
         android:onClick="onClickButtonAgenda"
         android:paddingLeft="80dp"
-        android:text="@string/string_agenda"
+        android:text=""
         android:textAlignment="textStart"
         android:textColor="@android:color/white"
         app:layout_constraintHorizontal_bias="0.0"
@@ -46,7 +46,7 @@
         android:background="@color/color_panteone2"
         android:onClick="onClickButtonAulaVirtual"
         android:paddingLeft="80dp"
-        android:text="@string/string_aula_virtual"
+        android:text=""
         android:textAlignment="textStart"
         android:textColor="@android:color/white"
         app:layout_constraintHorizontal_bias="0.0"
@@ -62,7 +62,7 @@
         android:background="@color/color_panteone"
         android:onClick="onClickButtonWebTSE"
         android:paddingLeft="80dp"
-        android:text="@string/string_tse"
+        android:text=""
         android:textAlignment="textStart"
         android:textColor="@android:color/white"
         app:layout_constraintHorizontal_bias="0.0"
@@ -117,7 +117,7 @@
         android:visibility="visible"
         app:layout_constraintLeft_toLeftOf="@+id/button_manual_paso_a_paso"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_dialog_map" />
+         />
 
     <ImageView
         android:id="@+id/imageView_agenda"
@@ -128,7 +128,7 @@
         android:translationZ="50dp"
         app:layout_constraintLeft_toLeftOf="@+id/button_agenda"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+         />
 
     <ImageView
         android:id="@+id/imageView_aula_virtual"
@@ -139,7 +139,7 @@
         android:layout_marginLeft="28dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="269dp" />
+         />
 
     <ImageView
         android:id="@+id/imageView_sitio_web_tse"
@@ -150,7 +150,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="389dp"
         android:layout_marginLeft="28dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+         />
 
     <ImageView
         android:id="@+id/imageView_logo_tse"

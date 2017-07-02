@@ -19,11 +19,10 @@ public class llenarDetalle {
         Detalle[] detalleArreglo = null;
         try {
             myDb = new DAO(context);
-            myDb.createDataBase();
             Cursor res = myDb.consultaSQL("\n" +
-                    "SELECT d.detalle_id, d.texto, d.nombre_imgico, d.orden FROM tse_detalle d INNER JOIN tse_actividad_x_detalle axd ON axd.detalle_id = d.detalle_id WHERE axd.actividad_id = "+actividad_id);
-            if (res.getCount() == 0) {
-                return null;
+                    "SELECT d.detalle_id, d.texto, d.nombre_imgico, d.orden FROM tse_detalle d INNER JOIN tse_actividad_x_detalle axd ON axd.detalle_id = d.detalle_id WHERE d.activo = 1 AND axd.actividad_id = "+actividad_id+" ORDER BY d.orden ASC");
+                if (res.getCount() == 0) {
+                    return null;
             }
             while (res.moveToNext()) {
                 Detalle fase = new Detalle(

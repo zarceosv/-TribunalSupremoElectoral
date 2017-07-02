@@ -1,22 +1,34 @@
 package com.tesis.tse.tse_instructivojrv;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 public class ActivityMain extends AppCompatActivity {
-    Button btn;
+    DAO myDb;
+    String url_btn3 = "";
+    String url_btn4 = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
+
+        /*--------- CREO LA INSTANCIA Y COPIO LA BASE DE DATOS-------------*/
+        crearInstanciaDB();
+        configurarPrincipal();
 
         /*--------- BOTÓN DE ACTUALIZAR APP -------------*/
         FloatingActionButton actualizar_app = (FloatingActionButton) findViewById(R.id.floatingActionButton_actualizar_app);
@@ -32,20 +44,80 @@ public class ActivityMain extends AppCompatActivity {
         /*--------- FIN BOTÓN ACTUALIZAR APP ---------*/
     }
 
+    public void configurarPrincipal(){
+        Cursor res;
+        // tbn1
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn1_main'");
+        if (res.getCount() == 0) {
+            return ;
+        }
+        while (res.moveToNext()) {
+            String[] valor = res.getString(0).split(",");
+            TextView texto_d = (TextView) findViewById(R.id.button_manual_paso_a_paso);
+            texto_d.setText(valor[0]);
+            int imagen = getResources().getIdentifier(valor[1], "drawable",this.getPackageName());
+            ImageView imagen_d = (ImageView) findViewById(R.id.imageView_paso_paso);
+            Glide.with(this).load(imagen).into(imagen_d);
+        }
+        // tbn2
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn2_main'");
+        if (res.getCount() == 0) {
+            return ;
+        }
+        while (res.moveToNext()) {
+            String[] valor = res.getString(0).split(",");
+            TextView texto_d = (TextView) findViewById(R.id.button_agenda);
+            texto_d.setText(valor[0]);
+            int imagen = getResources().getIdentifier(valor[1], "drawable",this.getPackageName());
+            ImageView imagen_d = (ImageView) findViewById(R.id.imageView_agenda);
+            Glide.with(this).load(imagen).into(imagen_d);
+        }
+        // tbn1
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn3_main'");
+        if (res.getCount() == 0) {
+            return ;
+        }
+        while (res.moveToNext()) {
+            String[] valor = res.getString(0).split(",");
+            TextView texto_d = (TextView) findViewById(R.id.button_aula_virtual);
+            texto_d.setText(valor[0]);
+            int imagen = getResources().getIdentifier(valor[1], "drawable",this.getPackageName());
+            ImageView imagen_d = (ImageView) findViewById(R.id.imageView_aula_virtual);
+            Glide.with(this).load(imagen).into(imagen_d);
+            url_btn3 = valor[2];
+        }
+        // tbn1
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn4_main'");
+        if (res.getCount() == 0) {
+            return ;
+        }
+        while (res.moveToNext()) {
+            String[] valor = res.getString(0).split(",");
+            TextView texto_d = (TextView) findViewById(R.id.button_web_tse);
+            texto_d.setText(valor[0]);
+            int imagen = getResources().getIdentifier(valor[1], "drawable",this.getPackageName());
+            ImageView imagen_d = (ImageView) findViewById(R.id.imageView_sitio_web_tse);
+            Glide.with(this).load(imagen).into(imagen_d);
+            url_btn4 = valor[2];
+        }
+        res.close();
+    }
+
     /*--------- ENLACES EXTERNOS DE LA APP -------------*/
     public void onClickButtonWebTSE(View v){
-        Uri uri = Uri.parse("http://www.tse.gob.sv/"); // missing 'http://' will cause crashed
+        Uri uri = Uri.parse(url_btn4); // missing 'http://' will cause crashed
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
 
     public void onClickButtonAulaVirtual(View v){
-        Uri uri = Uri.parse("http://consulta.tse.gob.sv/"); // missing 'http://' will cause crashed
+        Uri uri = Uri.parse(url_btn3); // missing 'http://' will cause crashed
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
     /*--------- FIN DE ENLACES EXTERNOS DE LA APP ---------*/
 
+    /*--------- ENLACES INTERNOS DE LA APP -------------*/
     public void onClickButtonManual(View v){
         Intent i = new Intent(this, ActivityManual.class );
         startActivity(i);
@@ -54,5 +126,16 @@ public class ActivityMain extends AppCompatActivity {
     public void onClickButtonAgenda(View v){
         Intent i = new Intent(this, ActivityAgenda.class );
         startActivity(i);
+    }
+    /*--------- FIN DE ENLACES INTERNOS DE LA APP -------------*/
+
+    /*--------- CREO LA INSTANCIA DE BASE DE DATOS ---------*/
+    public void crearInstanciaDB(){
+        try{
+            myDb = new DAO(this);
+            myDb.createDataBase();
+        }catch (Exception e){
+
+        }
     }
 }
