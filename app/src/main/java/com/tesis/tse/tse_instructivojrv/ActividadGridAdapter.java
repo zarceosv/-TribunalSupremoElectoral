@@ -73,6 +73,9 @@ public class ActividadGridAdapter extends BaseAdapter {
                 public void onClick(View view) {
                     Intent i = new Intent(mContext, ActivityDescripcion.class );
                     i.putExtra("id_actividad", item.getId());
+                    i.putExtra("imagen_actividad", item.getImagen());
+                    i.putExtra("titulo_actividad", item.getTitulo());
+                    i.putExtra("descripcion_actividad", item.getDescripcion());
                     mContext.startActivity(i);
                 }
             });

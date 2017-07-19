@@ -3,12 +3,15 @@ package com.tesis.tse.tse_instructivojrv;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -46,6 +49,14 @@ public class ActivityMain extends AppCompatActivity {
 
     public void configurarPrincipal(){
         Cursor res;
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int AnchoPantalla = size.x;
+        int AltoPantalla = size.y;
+        int btn_Alto = AltoPantalla/5;
+        int img_Alto = btn_Alto/2;
+
         // tbn1
         res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn1_main'");
         if (res.getCount() == 0) {
@@ -53,8 +64,15 @@ public class ActivityMain extends AppCompatActivity {
         }
         while (res.moveToNext()) {
             String[] valor = res.getString(0).split(",");
-            TextView texto_d = (TextView) findViewById(R.id.button_manual_paso_a_paso);
-            texto_d.setText(valor[0]);
+
+            Button btn1 = (Button) findViewById(R.id.button_manual_paso_a_paso);
+            btn1.setText(valor[0]);
+            ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
+                    AnchoPantalla,
+                    btn_Alto
+            );
+            btn1.setLayoutParams (params);
+
             int imagen = getResources().getIdentifier(valor[1], "drawable",this.getPackageName());
             ImageView imagen_d = (ImageView) findViewById(R.id.imageView_paso_paso);
             Glide.with(this).load(imagen).into(imagen_d);
@@ -66,8 +84,15 @@ public class ActivityMain extends AppCompatActivity {
         }
         while (res.moveToNext()) {
             String[] valor = res.getString(0).split(",");
-            TextView texto_d = (TextView) findViewById(R.id.button_agenda);
-            texto_d.setText(valor[0]);
+            Button btn2 = (Button) findViewById(R.id.button_agenda);
+            btn2.setText(valor[0]);
+            ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
+                    AnchoPantalla,
+                    btn_Alto
+            );
+            params.topToBottom = R.id.button_manual_paso_a_paso;
+            btn2.setLayoutParams (params);
+
             int imagen = getResources().getIdentifier(valor[1], "drawable",this.getPackageName());
             ImageView imagen_d = (ImageView) findViewById(R.id.imageView_agenda);
             Glide.with(this).load(imagen).into(imagen_d);
@@ -79,8 +104,14 @@ public class ActivityMain extends AppCompatActivity {
         }
         while (res.moveToNext()) {
             String[] valor = res.getString(0).split(",");
-            TextView texto_d = (TextView) findViewById(R.id.button_aula_virtual);
-            texto_d.setText(valor[0]);
+            Button btn3 = (Button) findViewById(R.id.button_aula_virtual);
+            btn3.setText(valor[0]);
+            ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
+                    AnchoPantalla,
+                    btn_Alto
+            );
+            params.topToBottom = R.id.button_agenda;
+            btn3.setLayoutParams (params);
             int imagen = getResources().getIdentifier(valor[1], "drawable",this.getPackageName());
             ImageView imagen_d = (ImageView) findViewById(R.id.imageView_aula_virtual);
             Glide.with(this).load(imagen).into(imagen_d);
@@ -93,8 +124,14 @@ public class ActivityMain extends AppCompatActivity {
         }
         while (res.moveToNext()) {
             String[] valor = res.getString(0).split(",");
-            TextView texto_d = (TextView) findViewById(R.id.button_web_tse);
-            texto_d.setText(valor[0]);
+            Button btn4 = (Button) findViewById(R.id.button_web_tse);
+            btn4.setText(valor[0]);
+            ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
+                    AnchoPantalla,
+                    btn_Alto
+            );
+            params.topToBottom = R.id.button_aula_virtual;
+            btn4.setLayoutParams (params);
             int imagen = getResources().getIdentifier(valor[1], "drawable",this.getPackageName());
             ImageView imagen_d = (ImageView) findViewById(R.id.imageView_sitio_web_tse);
             Glide.with(this).load(imagen).into(imagen_d);
