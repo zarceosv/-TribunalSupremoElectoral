@@ -29,6 +29,7 @@ public class DetalleGridHolder extends RecyclerView.ViewHolder {
     }
 
     public void populateItems(Detalle items) {
+
         if(items.getImagen()!=0) {
             Glide.with(mContext).load(items.getImagen()).into(imagen_d);
         }else{

@@ -53,7 +53,7 @@ public class llenarActividad {
         try {
             myDb = new DAO(context);
             myDb.createDataBase();
-            Cursor res = myDb.consultaSQL("SELECT f.nombre,a.titulo, a.descripcion,a.nombre_imgico,a.orden,COUNT(axd.actividad_x_detalle_id),a.actividad_id, a.hora_inicio, a.hora_fin FROM tse_fase f INNER JOIN tse_actividad a ON f.fase_id = a.fase_id LEFT JOIN tse_actividad_x_detalle axd ON axd.actividad_id = a.actividad_id WHERE a.activo = 1 GROUP BY f.fase_id, a.actividad_id ORDER BY a.hora_inicio" );
+            Cursor res = myDb.consultaSQL("SELECT f.nombre,a.titulo, a.descripcion,a.nombre_imgico,a.orden,COUNT(axd.actividad_x_detalle_id),a.actividad_id, a.hora_inicio, a.hora_fin FROM tse_fase f INNER JOIN tse_actividad a ON f.fase_id = a.fase_id LEFT JOIN tse_actividad_x_detalle axd ON axd.actividad_id = a.actividad_id WHERE a.activo = 1 and f.activo = 1 GROUP BY f.fase_id, a.actividad_id ORDER BY a.orden" );
             if (res.getCount() == 0) {
                 return null;
             }

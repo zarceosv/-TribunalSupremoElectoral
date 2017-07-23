@@ -2,6 +2,7 @@ package com.tesis.tse.tse_instructivojrv;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,8 +33,19 @@ public class AgendaGridHolder extends RecyclerView.ViewHolder {
 
     public void populateItems(Actividad items) {
 
-        hora.setText("I: "+items.getHora_inicio()+"\n"+"F: "+items.getHora_fin());
-        detalle.setText(items.getTitulo()+items.getDescripcion());
-        fase.setText(items.getNombre_fase().toUpperCase());
+        String hora_inicio = "";
+        String hora_fin = "";
+        String enter = "";
+        Log.e("hora",items.getHora_inicio().toString());
+        if(!items.getHora_inicio().toString().trim().matches(""))
+            hora_inicio = "I: "+items.getHora_inicio();
+        if(!items.getHora_fin().toString().trim().matches(""))
+            hora_fin = "F: "+items.getHora_fin();
+        if(hora_fin != "" && hora_inicio != "")
+            enter = "\n";
+
+        hora.setText(hora_inicio + enter + hora_fin);
+        detalle.setText(items.getTitulo());
+        fase.setText("  "+items.getNombre_fase().toUpperCase());
     }
 }
