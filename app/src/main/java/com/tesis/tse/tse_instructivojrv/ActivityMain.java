@@ -1,5 +1,6 @@
 package com.tesis.tse.tse_instructivojrv;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -162,6 +163,11 @@ public class ActivityMain extends AppCompatActivity {
 
     public void onClickButtonAgenda(View v){
         Intent i = new Intent(this, ActivityAgenda.class );
+        startActivity(i);
+    }
+
+    public void onClickButtonAcercade(View v){
+        Intent i = new Intent(this, ActivityAcecade.class );
         startActivity(i);
     }
     /*--------- FIN DE ENLACES INTERNOS DE LA APP -------------*/
