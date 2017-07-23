@@ -95,6 +95,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:clickable="true"
+        android:onClick="onClickButtonAcercade"
         app:backgroundTint="@color/color_panteone2"
         app:fabSize="mini"
         app:layout_constraintBottom_toBottomOf="parent"
