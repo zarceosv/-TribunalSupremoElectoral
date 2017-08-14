@@ -111,22 +111,20 @@
         android:forceHasOverlappingRendering="false"
         android:translationZ="50dp"
         android:visibility="visible"
-        app:layout_constraintTop_toTopOf="@+id/button_manual_paso_a_paso"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="@+id/button_manual_paso_a_paso"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="33dp" />
+        tools:layout_editor_absoluteY="0dp"
+        android:layout_marginLeft="38dp"
+        app:layout_constraintLeft_toLeftOf="@+id/button_manual_paso_a_paso" />
 
     <ImageView
         android:id="@+id/imageView_agenda"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_marginLeft="28dp"
         android:translationZ="50dp"
-        app:layout_constraintLeft_toLeftOf="@+id/button_agenda"
-        app:layout_constraintTop_toTopOf="@+id/button_agenda"
-        android:layout_marginTop="37dp"
-        android:layout_marginStart="28dp" />
+        android:layout_marginStart="28dp"
+        tools:layout_editor_absoluteY="116dp"
+        android:layout_marginLeft="28dp"
+        app:layout_constraintLeft_toLeftOf="@+id/button_agenda" />
 
     <ImageView
         android:id="@+id/imageView_aula_virtual"
@@ -134,11 +132,10 @@
         android:layout_height="35dp"
         android:translationZ="50dp"
         app:srcCompat="@android:drawable/ic_dialog_dialer"
-        app:layout_constraintTop_toTopOf="@+id/button_aula_virtual"
-        android:layout_marginTop="34dp"
+        android:layout_marginStart="28dp"
+        tools:layout_editor_absoluteY="238dp"
         android:layout_marginLeft="28dp"
-        app:layout_constraintLeft_toLeftOf="@+id/button_aula_virtual"
-        android:layout_marginStart="28dp" />
+        app:layout_constraintLeft_toLeftOf="@+id/button_aula_virtual" />
 
     <ImageView
         android:id="@+id/imageView_sitio_web_tse"
@@ -146,11 +143,10 @@
         android:layout_height="35dp"
         android:translationZ="50dp"
         app:srcCompat="@android:drawable/ic_dialog_alert"
-        app:layout_constraintTop_toTopOf="@+id/button_web_tse"
-        android:layout_marginTop="43dp"
-        android:layout_marginLeft="38dp"
-        app:layout_constraintLeft_toLeftOf="@+id/button_web_tse"
-        android:layout_marginStart="28dp" />
+        android:layout_marginStart="28dp"
+        tools:layout_editor_absoluteY="346dp"
+        android:layout_marginLeft="28dp"
+        app:layout_constraintLeft_toLeftOf="@+id/button_web_tse" />
 
     <ImageView
         android:id="@+id/imageView_logo_tse"

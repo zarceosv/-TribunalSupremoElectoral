@@ -1,6 +1,7 @@
 package com.tesis.tse.tse_instructivojrv;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +33,15 @@ public class DetalleGridHolder extends RecyclerView.ViewHolder {
 
         if(items.getImagen()!=0) {
             Glide.with(mContext).load(items.getImagen()).into(imagen_d);
+            final Integer id_imagen_actividad = items.getImagen();
+            imagen_d.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(mContext, ActivityViewImage.class );
+                    i.putExtra("imagen_actividad", id_imagen_actividad);
+                    mContext.startActivity(i);
+                }
+            });
         }else{
             imagen_d.setVisibility(View.GONE);
         }

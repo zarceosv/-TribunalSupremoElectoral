@@ -1,9 +1,12 @@
 package com.tesis.tse.tse_instructivojrv;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +23,7 @@ public class ActivityDescripcion extends AppCompatActivity {
 
         Bundle datos = this.getIntent().getExtras();
         Integer id_actividad = datos.getInt("id_actividad");
-        Integer id_imagen_actividad = datos.getInt("imagen_actividad");
+        final Integer id_imagen_actividad = datos.getInt("imagen_actividad");
         String Titulo = datos.getString("titulo_actividad");
         String Descripcion = datos.getString("descripcion_actividad");
 
@@ -30,8 +33,19 @@ public class ActivityDescripcion extends AppCompatActivity {
         TextView descripcion_text = (TextView) findViewById(R.id.descripcion_actividad_d);
         descripcion_text.setText(Descripcion);
 
-        ImageView image = (ImageView) findViewById(R.id.imagen_actividad_d);
+        final ImageView image = (ImageView) findViewById(R.id.imagen_actividad_d);
         Glide.with(image.getContext()).load(id_imagen_actividad).into(image);
+
+        final Context mContext = image.getContext();
+
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, ActivityViewImage.class );
+                i.putExtra("imagen_actividad", id_imagen_actividad);
+                mContext.startActivity(i);
+            }
+        });
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rcv);
         recyclerSetup(recyclerView,id_actividad);

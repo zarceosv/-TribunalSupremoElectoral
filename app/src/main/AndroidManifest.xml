@@ -21,7 +21,8 @@
         <activity android:name=".ActivityManual" />
         <activity android:name=".ActivityDescripcion" />
         <activity android:name=".ActivityAgenda" />
-        <activity android:name=".ActivityAcecade"></activity>
+        <activity android:name=".ActivityAcecade" />
+        <activity android:name=".ActivityViewImage"></activity>
     </application>
 
 </manifest>

@@ -80,7 +80,16 @@ public class ActividadGridAdapter extends BaseAdapter {
                 }
             });
         }else {
+            final Integer id_imagen_actividad = item.getImagen();
             Leermas.setText("");
+            image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(mContext, ActivityViewImage.class );
+                    i.putExtra("imagen_actividad", id_imagen_actividad);
+                    mContext.startActivity(i);
+                }
+            });
         }
         return view;
     }

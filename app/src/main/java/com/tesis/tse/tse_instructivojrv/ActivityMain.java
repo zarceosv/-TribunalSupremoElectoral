@@ -56,7 +56,7 @@ public class ActivityMain extends AppCompatActivity {
         int AnchoPantalla = size.x;
         int AltoPantalla = size.y;
         int btn_Alto = AltoPantalla/5;
-        int img_Alto = btn_Alto/2;
+        int img_Alto = btn_Alto/3;
 
         // tbn1
         res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn1_main'");
@@ -77,6 +77,7 @@ public class ActivityMain extends AppCompatActivity {
             int imagen = getResources().getIdentifier(valor[1], "drawable",this.getPackageName());
             ImageView imagen_d = (ImageView) findViewById(R.id.imageView_paso_paso);
             Glide.with(this).load(imagen).into(imagen_d);
+            imagen_d.setY(img_Alto);
         }
         // tbn2
         res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn2_main'");
@@ -97,8 +98,9 @@ public class ActivityMain extends AppCompatActivity {
             int imagen = getResources().getIdentifier(valor[1], "drawable",this.getPackageName());
             ImageView imagen_d = (ImageView) findViewById(R.id.imageView_agenda);
             Glide.with(this).load(imagen).into(imagen_d);
+            imagen_d.setY(img_Alto+btn_Alto);
         }
-        // tbn1
+        // tbn3
         res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn3_main'");
         if (res.getCount() == 0) {
             return ;
@@ -116,9 +118,10 @@ public class ActivityMain extends AppCompatActivity {
             int imagen = getResources().getIdentifier(valor[1], "drawable",this.getPackageName());
             ImageView imagen_d = (ImageView) findViewById(R.id.imageView_aula_virtual);
             Glide.with(this).load(imagen).into(imagen_d);
+            imagen_d.setY(img_Alto+btn_Alto*2);
             url_btn3 = valor[2];
         }
-        // tbn1
+        // tbn4
         res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn4_main'");
         if (res.getCount() == 0) {
             return ;
@@ -137,6 +140,7 @@ public class ActivityMain extends AppCompatActivity {
             ImageView imagen_d = (ImageView) findViewById(R.id.imageView_sitio_web_tse);
             Glide.with(this).load(imagen).into(imagen_d);
             url_btn4 = valor[2];
+            imagen_d.setY(img_Alto+btn_Alto*3);
         }
         res.close();
     }
