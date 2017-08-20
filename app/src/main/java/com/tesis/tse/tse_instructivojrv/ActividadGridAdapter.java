@@ -54,8 +54,11 @@ public class ActividadGridAdapter extends BaseAdapter {
 
         // Seteando Imagen
         ImageView image = (ImageView) view.findViewById(R.id.imagen);
-        Glide.with(image.getContext()).load(item.getImagen()).into(image);
-
+        if(item.getImagen()!=0) {
+            Glide.with(image.getContext()).load(item.getImagen()).into(image);
+        }else{
+            image.setVisibility(View.GONE);
+        }
         // Seteando Nombre
         TextView name = (TextView) view.findViewById(R.id.nombre);
         name.setText(item.getTitulo());

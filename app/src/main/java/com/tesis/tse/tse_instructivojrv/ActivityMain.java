@@ -56,94 +56,133 @@ public class ActivityMain extends AppCompatActivity {
         int AnchoPantalla = size.x;
         int AltoPantalla = size.y;
         int btn_Alto = AltoPantalla/5;
-        int img_Alto = btn_Alto/3;
+        float dp = 20;
+        float px = dp * getResources().getDisplayMetrics().density;
+        float img_Alto = btn_Alto/2  - px;
 
-        // tbn1
-        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn1_main'");
+        // tbn1 nombre
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn1_main_nombre'");
         if (res.getCount() == 0) {
             return ;
         }
         while (res.moveToNext()) {
-            String[] valor = res.getString(0).split(",");
-
             Button btn1 = (Button) findViewById(R.id.button_manual_paso_a_paso);
-            btn1.setText(valor[0]);
+            btn1.setText(res.getString(0));
             ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
                     AnchoPantalla,
                     btn_Alto
             );
             btn1.setLayoutParams (params);
-
-            int imagen = getResources().getIdentifier(valor[1], "drawable",this.getPackageName());
-            ImageView imagen_d = (ImageView) findViewById(R.id.imageView_paso_paso);
-            Glide.with(this).load(imagen).into(imagen_d);
-            imagen_d.setY(img_Alto);
         }
-        // tbn2
-        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn2_main'");
+        // tbn1 icono
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn1_main_icono'");
         if (res.getCount() == 0) {
             return ;
         }
         while (res.moveToNext()) {
-            String[] valor = res.getString(0).split(",");
+            int imagen = getResources().getIdentifier(res.getString(0), "drawable", this.getPackageName());
+            ImageView imagen_d = (ImageView) findViewById(R.id.imageView_paso_paso);
+            Glide.with(this).load(imagen).into(imagen_d);
+            imagen_d.setY(img_Alto);
+        }
+        // tbn2 nombre
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn2_main_nombre'");
+        if (res.getCount() == 0) {
+            return ;
+        }
+        while (res.moveToNext()) {
             Button btn2 = (Button) findViewById(R.id.button_agenda);
-            btn2.setText(valor[0]);
+            btn2.setText(res.getString(0));
             ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
                     AnchoPantalla,
                     btn_Alto
             );
             params.topToBottom = R.id.button_manual_paso_a_paso;
             btn2.setLayoutParams (params);
-
-            int imagen = getResources().getIdentifier(valor[1], "drawable",this.getPackageName());
-            ImageView imagen_d = (ImageView) findViewById(R.id.imageView_agenda);
-            Glide.with(this).load(imagen).into(imagen_d);
-            imagen_d.setY(img_Alto+btn_Alto);
         }
-        // tbn3
-        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn3_main'");
+        // tbn2 icono
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn2_main_icono'");
         if (res.getCount() == 0) {
             return ;
         }
         while (res.moveToNext()) {
-            String[] valor = res.getString(0).split(",");
+            int imagen = getResources().getIdentifier(res.getString(0), "drawable",this.getPackageName());
+            ImageView imagen_d = (ImageView) findViewById(R.id.imageView_agenda);
+            Glide.with(this).load(imagen).into(imagen_d);
+            imagen_d.setY(img_Alto+btn_Alto);
+        }
+        // tbn3 nombre
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn3_main_nombre'");
+        if (res.getCount() == 0) {
+            return ;
+        }
+        while (res.moveToNext()) {
             Button btn3 = (Button) findViewById(R.id.button_aula_virtual);
-            btn3.setText(valor[0]);
+            btn3.setText(res.getString(0));
             ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
                     AnchoPantalla,
                     btn_Alto
             );
             params.topToBottom = R.id.button_agenda;
-            btn3.setLayoutParams (params);
-            int imagen = getResources().getIdentifier(valor[1], "drawable",this.getPackageName());
-            ImageView imagen_d = (ImageView) findViewById(R.id.imageView_aula_virtual);
-            Glide.with(this).load(imagen).into(imagen_d);
-            imagen_d.setY(img_Alto+btn_Alto*2);
-            url_btn3 = valor[2];
+            btn3.setLayoutParams(params);
         }
-        // tbn4
-        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn4_main'");
+        // tbn3 icono
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn3_main_icono'");
         if (res.getCount() == 0) {
             return ;
         }
         while (res.moveToNext()) {
-            String[] valor = res.getString(0).split(",");
+            int imagen = getResources().getIdentifier(res.getString(0), "drawable",this.getPackageName());
+            ImageView imagen_d = (ImageView) findViewById(R.id.imageView_aula_virtual);
+            Glide.with(this).load(imagen).into(imagen_d);
+            imagen_d.setY(img_Alto+btn_Alto*2);
+
+        }
+        // tbn3 link
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn3_main_link'");
+        if (res.getCount() == 0) {
+            return ;
+        }
+        while (res.moveToNext()) {
+            url_btn3 = res.getString(0);
+        }
+        // tbn4 nombre
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn4_main_nombre'");
+        if (res.getCount() == 0) {
+            return ;
+        }
+        while (res.moveToNext()) {
             Button btn4 = (Button) findViewById(R.id.button_web_tse);
-            btn4.setText(valor[0]);
+            btn4.setText(res.getString(0));
             ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
                     AnchoPantalla,
                     btn_Alto
             );
             params.topToBottom = R.id.button_aula_virtual;
-            btn4.setLayoutParams (params);
-            int imagen = getResources().getIdentifier(valor[1], "drawable",this.getPackageName());
+            btn4.setLayoutParams(params);
+        }
+        // tbn4 icono
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn4_main_icono'");
+        if (res.getCount() == 0) {
+            return ;
+        }
+        while (res.moveToNext()) {
+            int imagen = getResources().getIdentifier(res.getString(0), "drawable",this.getPackageName());
             ImageView imagen_d = (ImageView) findViewById(R.id.imageView_sitio_web_tse);
             Glide.with(this).load(imagen).into(imagen_d);
-            url_btn4 = valor[2];
             imagen_d.setY(img_Alto+btn_Alto*3);
+        }
+        // tbn4 link
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn4_main_link'");
+        if (res.getCount() == 0) {
+            return ;
+        }
+        while (res.moveToNext()) {
+            url_btn4 = res.getString(0);
         }
         res.close();
     }
+
 
     /*--------- ENLACES EXTERNOS DE LA APP -------------*/
     public void onClickButtonWebTSE(View v){

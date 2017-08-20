@@ -34,8 +34,11 @@ public class ActivityDescripcion extends AppCompatActivity {
         descripcion_text.setText(Descripcion);
 
         final ImageView image = (ImageView) findViewById(R.id.imagen_actividad_d);
-        Glide.with(image.getContext()).load(id_imagen_actividad).into(image);
-
+        if(id_imagen_actividad!=0) {
+            Glide.with(image.getContext()).load(id_imagen_actividad).into(image);
+        }else{
+            image.setVisibility(View.GONE);
+        }
         final Context mContext = image.getContext();
 
         image.setOnClickListener(new View.OnClickListener() {
