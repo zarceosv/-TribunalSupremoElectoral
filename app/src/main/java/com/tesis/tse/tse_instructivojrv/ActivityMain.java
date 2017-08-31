@@ -61,7 +61,7 @@ public class ActivityMain extends AppCompatActivity {
         float img_Alto = btn_Alto/2  - px;
 
         // tbn1 nombre
-        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn1_main_nombre'");
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE activo = 1 and abreviatura = 'btn1_main_nombre'");
         if (res.getCount() == 0) {
             return ;
         }
@@ -75,7 +75,7 @@ public class ActivityMain extends AppCompatActivity {
             btn1.setLayoutParams (params);
         }
         // tbn1 icono
-        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn1_main_icono'");
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE activo = 1 and abreviatura = 'btn1_main_icono'");
         if (res.getCount() == 0) {
             return ;
         }
@@ -86,7 +86,7 @@ public class ActivityMain extends AppCompatActivity {
             imagen_d.setY(img_Alto);
         }
         // tbn2 nombre
-        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn2_main_nombre'");
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE activo = 1 and abreviatura = 'btn2_main_nombre'");
         if (res.getCount() == 0) {
             return ;
         }
@@ -101,7 +101,7 @@ public class ActivityMain extends AppCompatActivity {
             btn2.setLayoutParams (params);
         }
         // tbn2 icono
-        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn2_main_icono'");
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE activo = 1 and abreviatura = 'btn2_main_icono'");
         if (res.getCount() == 0) {
             return ;
         }
@@ -112,7 +112,7 @@ public class ActivityMain extends AppCompatActivity {
             imagen_d.setY(img_Alto+btn_Alto);
         }
         // tbn3 nombre
-        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn3_main_nombre'");
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE activo = 1 and abreviatura = 'btn3_main_nombre'");
         if (res.getCount() == 0) {
             return ;
         }
@@ -127,7 +127,7 @@ public class ActivityMain extends AppCompatActivity {
             btn3.setLayoutParams(params);
         }
         // tbn3 icono
-        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn3_main_icono'");
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE activo = 1 and abreviatura = 'btn3_main_icono'");
         if (res.getCount() == 0) {
             return ;
         }
@@ -139,7 +139,7 @@ public class ActivityMain extends AppCompatActivity {
 
         }
         // tbn3 link
-        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn3_main_link'");
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE activo = 1 and abreviatura = 'btn3_main_link'");
         if (res.getCount() == 0) {
             return ;
         }
@@ -147,7 +147,7 @@ public class ActivityMain extends AppCompatActivity {
             url_btn3 = res.getString(0);
         }
         // tbn4 nombre
-        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn4_main_nombre'");
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE activo = 1 and abreviatura = 'btn4_main_nombre'");
         if (res.getCount() == 0) {
             return ;
         }
@@ -162,7 +162,7 @@ public class ActivityMain extends AppCompatActivity {
             btn4.setLayoutParams(params);
         }
         // tbn4 icono
-        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn4_main_icono'");
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE activo = 1 and abreviatura = 'btn4_main_icono'");
         if (res.getCount() == 0) {
             return ;
         }
@@ -173,7 +173,7 @@ public class ActivityMain extends AppCompatActivity {
             imagen_d.setY(img_Alto+btn_Alto*3);
         }
         // tbn4 link
-        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE abreviatura = 'btn4_main_link'");
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE activo = 1 and abreviatura = 'btn4_main_link'");
         if (res.getCount() == 0) {
             return ;
         }

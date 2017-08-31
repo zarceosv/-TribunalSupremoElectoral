@@ -21,7 +21,7 @@ public class llenarActividad {
         Actividad[] actividadesArreglo = null;
         try {
             myDb = new DAO(context);
-            Cursor res = myDb.consultaSQL("SELECT f.nombre,a.titulo, a.descripcion,a.nombre_imgico,a.orden,COUNT(axd.actividad_x_detalle_id),a.actividad_id, a.hora_inicio, a.hora_fin FROM tse_fase f INNER JOIN tse_actividad a ON f.fase_id = a.fase_id LEFT JOIN tse_actividad_x_detalle axd ON axd.actividad_id = a.actividad_id WHERE a.activo = 1 AND f.fase_id = "+id_fase+" GROUP BY f.fase_id, a.actividad_id ORDER BY a.orden ASC");
+            Cursor res = myDb.consultaSQL("SELECT f.nombre,a.titulo, a.descripcion,a.nombre_imgico,a.orden,COUNT(d.detalle_id),a.actividad_id, a.hora_inicio, a.hora_fin FROM tse_fase f INNER JOIN tse_actividad a ON f.fase_id = a.fase_id LEFT JOIN tse_actividad_x_detalle axd ON axd.actividad_id = a.actividad_id LEFT JOIN tse_detalle d ON d.detalle_id = axd.detalle_id AND d.activo = 1 WHERE a.activo = 1 AND f.fase_id = "+id_fase+" GROUP BY f.fase_id, a.actividad_id ORDER BY a.orden ASC");
             if (res.getCount() == 0) {
                 return null;
             }

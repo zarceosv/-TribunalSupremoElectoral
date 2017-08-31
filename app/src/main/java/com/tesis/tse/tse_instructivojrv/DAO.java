@@ -18,7 +18,7 @@ import java.io.OutputStream;
 
 public class DAO extends SQLiteOpenHelper {
     /*Configuración de la base de datos*/
-    private static final Integer DATABASE_version = 8;
+    private static final Integer DATABASE_version = 1;
     private static final String DATABASE_NAME = "tseDB";
     String DB_PATH = null;
     private final Context myContext;
