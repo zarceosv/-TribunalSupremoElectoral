@@ -24,6 +24,7 @@ public class ActivityMain extends AppCompatActivity {
     DAO myDb;
     String url_btn3 = "";
     String url_btn4 = "";
+    String url_play_store = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +41,13 @@ public class ActivityMain extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Reemplazar con el paquete de nuestra aplicacion al estar en la PlayStore
-                Uri uri = Uri.parse("market://details?id=sv.gob.tse.app1&hl=es");
-                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
-                startActivity(intent);
+                try {
+                    Uri uri = Uri.parse(url_play_store);
+                    Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                    startActivity(intent);
+                }catch (Exception ex){
+                    Log.e("Error",ex.toString());
+                }
             }
         });
         /*--------- FIN BOTÓN ACTUALIZAR APP ---------*/
@@ -179,6 +184,15 @@ public class ActivityMain extends AppCompatActivity {
         }
         while (res.moveToNext()) {
             url_btn4 = res.getString(0);
+        }
+
+        // tbn5 link
+        res = myDb.consultaSQL("SELECT valor FROM tse_parametro_sistema WHERE activo = 1 and abreviatura = 'app_link'");
+        if (res.getCount() == 0) {
+            return ;
+        }
+        while (res.moveToNext()) {
+            url_play_store = res.getString(0);
         }
         res.close();
     }
